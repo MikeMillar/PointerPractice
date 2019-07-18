@@ -84,6 +84,23 @@ int main() {
 		cout << text3[k] << flush;
 		k++;
 	}
+	cout << endl;
+
+
+	// Reversing a string with pointers
+	char text4[] = "hello";
+	int len = sizeof(text4)-1;
+	char* pStart = text4;
+	char* pEnd4 = text4 + len - 1;
+	while (pStart < pEnd4) {
+		char temp = *pStart;
+		*pStart = *pEnd4;
+		*pEnd4 = temp;
+
+		pStart++;
+		pEnd4--;
+	}
+	cout << text4 << endl;
 
 	return 0;
 }
