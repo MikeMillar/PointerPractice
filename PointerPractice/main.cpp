@@ -10,8 +10,8 @@ void manipulate(double *pValue) {
 int main() {
 
 	int nValue = 8;
-
 	int* pnValue = &nValue; // Points to memory address of nValue.
+
 	cout << "Int value: " << nValue << endl;
 	cout << "Pointer to int address: " << pnValue << endl;
 	cout << "Int value via pointer: " << *pnValue << endl; // * next to pointer to address, gets the value stored at that address
@@ -21,6 +21,27 @@ int main() {
 	cout << "1. dValue " << dValue << endl;
 	manipulate(&dValue); // Inputs mem address of dValue
 	cout << "4. dValue " << dValue << endl;
+
+	string texts[] = { "one", "two", "three" };
+	string* pTexts = texts; // This will act the same as the original array
+	cout << sizeof(texts) / sizeof(string) << endl;
+	for (int i = 0; i < sizeof(texts) / sizeof(string); i++) {
+		cout << pTexts[i] << " " << flush;
+	}
+	cout << endl;
+	for (int i = 0; i < sizeof(texts) / sizeof(string); i++, pTexts++) {
+		cout << *pTexts << " " << flush;
+	}
+	cout << endl;
+	string* pElement = texts; // Points to start of array
+	string* pEnd = &texts[2]; // Points to end of array
+	while (true) {
+		cout << *pElement << " " << flush;
+		if (pElement == pEnd) {
+			break;
+		}
+		pElement++;
+	}
 
 
 	return 0;
