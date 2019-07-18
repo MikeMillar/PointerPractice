@@ -42,7 +42,48 @@ int main() {
 		}
 		pElement++;
 	}
+	cout << endl;
 
+	const int NSTRINGS = 5;
+	string texts2[NSTRINGS] = { "one", "two", "three", "four", "five" };
+	string *pTexts2 = texts2;
+	cout << *pTexts2 << endl;
+	pTexts2 += 3;
+	cout << *pTexts2 << endl;
+	pTexts2 -= 2;
+	cout << *pTexts2 << endl;
+
+	string *pEnd2 = &texts2[NSTRINGS];
+	while (pTexts2 != pEnd2) {
+		cout << *pTexts2 << endl;
+		pTexts2++;
+	}
+
+	// Set pTexts2 back to start
+	pTexts2 = &texts2[0];
+	int elements = pEnd2 - pTexts2;
+	cout << elements << endl;
+
+	// Set pTexts2 back to start
+	pTexts2 = &texts2[0];
+	pTexts2 += NSTRINGS / 2; // Changes to pointer of middle of array
+	cout << *pTexts2 << endl;
+
+
+	// Char arrays
+	char text3[] = "hello";
+	for (int i = 0; i < sizeof(text3) / sizeof(char); i++) {
+		cout << i << ": " << text3[i] << endl;
+	}
+
+	int k = 0;
+	while (true) {
+		if (text3[k] == 0) {
+			break;
+		}
+		cout << text3[k] << flush;
+		k++;
+	}
 
 	return 0;
 }
